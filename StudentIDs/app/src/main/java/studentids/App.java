@@ -63,4 +63,29 @@ public class App {
 
         school.printStudents();
     }
+
+    public static boolean test1() {
+        AllStudents.loadStudents();
+        School school = new School();
+
+        for (Student student : AllStudents.students) {
+            school.swipeIn(student);
+            school.swipeIn(student); // swipe in twice to show that duplicates are not added
+        }
+
+        return school.students.size() == AllStudents.students.size();
+    }
+
+    public static boolean test2() {
+        AllStudents.loadStudents();
+        School school = new School();
+
+        for (Student student : AllStudents.students) {
+            school.swipeIn(student);
+            school.swipeIn(student);
+            school.swipeIn(student); // swipe in thrice to show that duplicates are not added
+        }
+
+        return school.students.size() == AllStudents.students.size();
+    }
 }
