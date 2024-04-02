@@ -93,4 +93,42 @@ public class App {
 
         System.out.println(game);
     }
+ 
+    public static boolean test1() {
+        Game game = new Game();
+
+        Player player1 = new Player("player1"); 
+        player1.addAttribute(new Attribute<>("health", "The player's health", 100)); 
+        player1.addAttribute(new Attribute<>("score", "The player's score", 15)); 
+        game.addPlayer(player1); 
+
+        Player player2 = new Player("player2"); 
+        player2.addAttribute(new Attribute<>("health", "The player's health", 75)); 
+        player2.addAttribute(new Attribute<>("score", "The player's score", 0)); 
+        game.addPlayer(player2);
+
+        boolean player1Exists = game.getPlayer("player1").isPresent();
+        boolean player2Exists = game.getPlayer("player2").isPresent(); 
+
+        return player1Exists && player2Exists;
+    }
+
+    public static boolean test2() {
+        Game game = new Game();
+
+        Player player1 = new Player("player1"); 
+        player1.addAttribute(new Attribute<>("health", "The player's health", 100)); 
+        player1.addAttribute(new Attribute<>("score", "The player's score", 15)); 
+        game.addPlayer(player1); 
+
+        Player player2 = new Player("player2"); 
+        player2.addAttribute(new Attribute<>("health", "The player's health", 75)); 
+        player2.addAttribute(new Attribute<>("dead", "Is the player dead", true)); 
+        game.addPlayer(player2);
+
+        boolean player1Exists = game.getPlayer("player1").isPresent();
+        boolean player2Exists = game.getPlayer("player2").isPresent(); 
+
+        return player1Exists && player2Exists;
+    }
 }
